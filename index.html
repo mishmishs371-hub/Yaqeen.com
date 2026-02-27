@@ -52,26 +52,21 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        html { 
+            scroll-behavior: smooth;
+            overflow-x: hidden; /* منع التمرير الأفقي */
+        }
         body { 
             font-family: 'Cairo', sans-serif; 
             background: var(--black); 
             color: var(--white); 
-            overflow-x: hidden;
+            overflow-x: hidden; /* منع التمرير الأفقي */
+            width: 100%;
         }
-
-        /* ========== CUSTOM CURSOR ========== */
-        .cursor {
-            width: 8px; height: 8px;
-            background: var(--gold);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 10000;
-            transform: translate(-50%, -50%);
-            transition: transform 0.1s;
+        /* ضمان عدم تجاوز أي عنصر للعرض */
+        img, video, iframe, .hero-title span, .hero-content, .collections-grid, .collection-card, .products-grid, .product-card, .contact-item, .about-visual, .identity-content {
+            max-width: 100%;
         }
-        .cursor.active { transform: translate(-50%, -50%) scale(3); }
 
         /* ========== NAVIGATION ========== */
         nav {
@@ -944,19 +939,16 @@
 </head>
 <body>
 
-    <!-- Custom Cursor -->
-    <div class="cursor" id="cursor"></div>
-
     <!-- Navigation -->
     <nav id="navbar">
-        <a href="#" class="logo" onclick="showPage('hero')">ي<span>ق</span>ين</a>
+        <a href="#" class="logo" onclick="showPage('hero'); return false;">ي<span>ق</span>ين</a>
         <ul class="nav-links">
-            <li><a href="#" onclick="showPage('hero')">الرئيسية</a></li>
-            <li><a href="#" onclick="showPage('philosophy')">فلسفتنا</a></li>
-            <li><a href="#" onclick="showPage('collections')">الكوليكشنز</a></li>
-            <li><a href="#" onclick="showPage('identity')">الهوية</a></li>
-            <li><a href="#" onclick="showPage('about')">عن البراند</a></li>
-            <li><a href="#" onclick="showPage('contact')">تواصل معنا</a></li>
+            <li><a href="#" onclick="showPage('hero'); return false;">الرئيسية</a></li>
+            <li><a href="#" onclick="showPage('philosophy'); return false;">فلسفتنا</a></li>
+            <li><a href="#" onclick="showPage('collections'); return false;">الكوليكشنز</a></li>
+            <li><a href="#" onclick="showPage('identity'); return false;">الهوية</a></li>
+            <li><a href="#" onclick="showPage('about'); return false;">عن البراند</a></li>
+            <li><a href="#" onclick="showPage('contact'); return false;">تواصل معنا</a></li>
         </ul>
         <div class="cart-icon" onclick="toggleCart()">
             <i class="fas fa-shopping-bag"></i>
@@ -979,7 +971,7 @@
                 <span>الإجمالي</span>
                 <span id="cartTotal">0 ج.م</span>
             </div>
-            <button class="checkout-btn">إتمام الشراء</button>
+            <button class="checkout-btn" onclick="sendOrderEmail()">إتمام الشراء</button>
             <div class="payment-methods">
                 <p>وسائل الدفع المتاحة</p>
                 <i class="fab fa-cc-visa"></i>
@@ -998,7 +990,7 @@
                 <h1 class="hero-title">ي<span>ق</span>ين<span>YAQEEN</span></h1>
                 <p class="hero-tagline">خليك أنيق مع يقين</p>
                 <p class="hero-desc">ارتدِ الحقيقة. شعر بالثقة. كن يقيناً.</p>
-                <a href="#" class="hero-btn" onclick="showPage('collections')">تصفح المنتجات</a>
+                <a href="#" class="hero-btn" onclick="showPage('collections'); return false;">تصفح المنتجات</a>
             </div>
         </section>
         <footer>
@@ -1084,7 +1076,7 @@
     <div class="page collection-page" id="summer-collection">
         <div class="collection-header">
             <h2>كوليكشن <span>الصيف 2024</span></h2>
-            <a href="#" class="back-btn" onclick="showPage('collections')"><i class="fas fa-arrow-right"></i> العودة للكوليكشنز</a>
+            <a href="#" class="back-btn" onclick="showPage('collections'); return false;"><i class="fas fa-arrow-right"></i> العودة للكوليكشنز</a>
         </div>
         <div class="products-grid" id="summerProducts"></div>
         <footer>
@@ -1096,7 +1088,7 @@
     <div class="page collection-page" id="essentials-collection">
         <div class="collection-header">
             <h2>كوليكشن <span>الأساسيات</span></h2>
-            <a href="#" class="back-btn" onclick="showPage('collections')"><i class="fas fa-arrow-right"></i> العودة للكوليكشنز</a>
+            <a href="#" class="back-btn" onclick="showPage('collections'); return false;"><i class="fas fa-arrow-right"></i> العودة للكوليكشنز</a>
         </div>
         <div class="products-grid" id="essentialsProducts"></div>
         <footer>
@@ -1108,7 +1100,7 @@
     <div class="page collection-page" id="streetwear-collection">
         <div class="collection-header">
             <h2>كوليكشن <span>ستريت وير</span></h2>
-            <a href="#" class="back-btn" onclick="showPage('collections')"><i class="fas fa-arrow-right"></i> العودة للكوليكشنز</a>
+            <a href="#" class="back-btn" onclick="showPage('collections'); return false;"><i class="fas fa-arrow-right"></i> العودة للكوليكشنز</a>
         </div>
         <div class="products-grid" id="streetwearProducts"></div>
         <footer>
@@ -1131,7 +1123,7 @@
                     كل قطعة نصممها تحمل معنى. نستخدم أجود الأقمشة وأفضل الخامات 
                     لأننا نؤمن بأنك تستحق الأفضل.
                 </p>
-                <a href="#" class="identity-btn" onclick="showPage('about')">اعرف أكثر عننا</a>
+                <a href="#" class="identity-btn" onclick="showPage('about'); return false;">اعرف أكثر عننا</a>
             </div>
         </section>
         <footer>
@@ -1175,57 +1167,44 @@
             <p>© 2026 يقين | جميع الحقوق محفوظة</p>
         </footer>
     </div>
-
-    <!-- CONTACT PAGE -->
-    <div class="page contact-page" id="contact">
-        <section class="contact-section">
-            <div class="contact-content">
-                <p class="section-title">تواصل معنا</p>
-                <h2>نحن <span>هنا</span> من أجلك</h2>
-                <div class="contact-methods">
-                    <div class="contact-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <h4>اتصل بنا</h4>
-                        <p>+20 10 1234 5678</p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <h4>واتساب</h4>
-                        <p>+20 10 1234 5678</p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <h4>البريد</h4>
-                        <p>info@yaqeen.com</p>
-                    </div>
-                    <a href="https://instagram.com/yaqeen.com" target="_blank" style="text-decoration: none; color: inherit;">
-                        <div class="contact-item">
-                            <i class="fab fa-instagram"></i>
-                            <h4>إنستغرام</h4>
-                            <p>@yaqeen.com</p>
-                        </div>
-                    </a>
+<!-- CONTACT PAGE -->
+<div class="page contact-page" id="contact">
+    <section class="contact-section">
+        <div class="contact-content">
+            <p class="section-title">تواصل معنا</p>
+            <h2>نحن <span>هنا</span> من أجلك</h2>
+            <div class="contact-methods">
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <h4>اتصل بنا</h4>
+                    <p>+20 10 1234 5678</p>
                 </div>
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <h4>واتساب</h4>
+                    <p>+20 10 1234 5678</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h4>البريد</h4>
+                    <p>info@yaqeen.com</p>
+                </div>
+                <a href="https://www.instagram.com/yaqeen.state?igsh=MW14cGV3enl5NGJ6NQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+                    <div class="contact-item">
+                        <i class="fab fa-instagram"></i>
+                        <h4>إنستغرام</h4>
+                        <p>@yaqeen.com</p>
+                    </div>
+                </a>
             </div>
-        </section>
-        <footer>
-            <p>© 2026 يقين | جميع الحقوق محفوظة</p>
-        </footer>
-    </div>
+        </div>
+    </section>
+    <footer>
+        <p>© 2026 يقين | جميع الحقوق محفوظة</p>
+    </footer>
+</div>
 
     <script>
-        // ========== CUSTOM CURSOR ==========
-        const cursor = document.getElementById('cursor');
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-
-        document.querySelectorAll('a, button, .collection-card, .size-option').forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('active'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
-        });
-
         // ========== NAVBAR SCROLL ==========
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
@@ -1237,13 +1216,22 @@
         });
 
         // ========== PAGE NAVIGATION ==========
-        function showPage(pageId) {
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-            document.getElementById(pageId).classList.add('active');
-            window.scrollTo(0, 0);
-        }
+        window.showPage = function(pageId) {
+            console.log('showPage called with:', pageId); // للتتبع
+            // إخفاء جميع الصفحات
+            var pages = document.querySelectorAll('.page');
+            for(var i = 0; i < pages.length; i++) {
+                pages[i].classList.remove('active');
+            }
+            // إظهار الصفحة المطلوبة
+            var target = document.getElementById(pageId);
+            if(target) {
+                target.classList.add('active');
+                window.scrollTo(0, 0);
+            } else {
+                console.error('الصفحة غير موجودة: ' + pageId);
+            }
+        };
 
         // ========== PRODUCT DATA ==========
         const productsData = {
@@ -1276,6 +1264,7 @@
         // ========== RENDER PRODUCTS ==========
         function renderProducts(containerId, products) {
             const container = document.getElementById(containerId);
+            if(!container) return;
             container.innerHTML = products.map(product => `
                 <div class="product-card">
                     <img class="product-image" src="${product.img}" alt="${product.name}">
@@ -1385,16 +1374,55 @@
             }
         }
 
-        function toggleCart() {
+        window.toggleCart = function() {
             document.getElementById('cartSidebar').classList.toggle('active');
             document.getElementById('cartOverlay').classList.toggle('active');
-        }
+        };
 
-        // Make functions global
-        window.showPage = showPage;
-        window.toggleCart = toggleCart;
-        window.addToCartFromCard = addToCartFromCard;
-        window.removeFromCart = removeFromCart;
+        // ========== SEND ORDER EMAIL ==========
+        const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mykdvpnl';
+
+        window.sendOrderEmail = async function() {
+            if (cart.length === 0) {
+                alert('السلة فارغة! أضف منتجات أولاً.');
+                return;
+            }
+
+            // تجهيز نص الرسالة
+            let message = 'طلب جديد من موقع يقين:\n\n';
+            cart.forEach((item, index) => {
+                message += `المنتج ${index+1}: ${item.name}\n`;
+                message += `المقاس: ${item.size}\n`;
+                message += `السعر: ${item.price} ج.م\n`;
+                message += `الصورة: ${item.img}\n\n`;
+            });
+            message += `الإجمالي: ${total} ج.م`;
+
+            const formData = new FormData();
+            formData.append('_subject', 'طلب جديد من yaqeen.com');
+            formData.append('message', message);
+            formData.append('_replyto', 'customer@example.com'); // يمكنك إضافة حقل لبريد العميل لو أردت
+
+            try {
+                const response = await fetch(FORMSPREE_ENDPOINT, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    alert('تم إرسال طلبك بنجاح! سنتواصل معك قريباً.');
+                    // تفريغ السلة بعد الإرسال (اختياري)
+                    cart = [];
+                    total = 0;
+                    updateCart();
+                    toggleCart(); // إغلاق السلة
+                } else {
+                    alert('حدث خطأ في الإرسال. حاول مرة أخرى.');
+                }
+            } catch (error) {
+                alert('فشل الاتصال بالخادم.');
+            }
+        };
     </script>
 </body>
 </html>
