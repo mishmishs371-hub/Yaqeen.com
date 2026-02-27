@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yaqeen.com | يقين - فلسفة وأناقة عصرية</title>
+    <meta name="description" content="yaqeen.com هو براند ملابس يجمع بين الفلسفة والأناقة. اكتشف مجموعاتنا التي تعبر عن الثقة والصدق والاطمئنان.">
+    <meta name="keywords" content="yaqeen.com, يقين, Yaqeen, ملابس, أزياء, براند, فلسفة, أناقة, عربية, كوليكشن">
+    <meta name="author" content="yaqeen.com">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yaqeen.com/">
+    <meta property="og:title" content="yaqeen.com | يقين">
+    <meta property="og:description" content="اكتشف فلسفة yaqeen.com في الأناقة والثقة. تسوق أحدث الكوليكشنز.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1200">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://yaqeen.com/">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Structured Data for Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "yaqeen.com",
+        "alternateName": "يقين",
+        "url": "https://yaqeen.com/",
+        "logo": "https://yaqeen.com/logo.png",
+        "sameAs": [
+            "https://www.instagram.com/yaqeen.com"
+        ],
+        "description": "yaqeen.com - براند ملابس فلسفي يجمع بين الأناقة والثقة."
+    }
+    </script>
+    
+    <style>
+        /* ========== VARIABLES ========== */
+        :root {
+            --black: #0d0d0d;
+            --dark: #1a1a1a;
+            --gray: #2d2d2d;
+            --light-gray: #404040;
+            --white: #f5f5f5;
+            --gold: #b8960f;
+            --gold-light: #d4b445;
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Cairo', sans-serif; 
+            background: var(--black); 
+            color: var(--white); 
+            overflow-x: hidden;
+        }
+
+        /* ========== CUSTOM CURSOR ========== */
+        .cursor {
+            width: 8px; height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 10000;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s;
+        }
+        .cursor.active { transform: translate(-50%, -50%) scale(3); }
+
+        /* ========== NAVIGATION ========== */
+        nav {
+            position: fixed; top: 0; width: 100%;
+            padding: 25px 50px;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000;
+            background: linear-gradient(to bottom, rgba(13,13,13,0.95), rgba(13,13,13,0));
+            transition: var(--transition);
+        }
+
+        nav.scrolled {
+            background: rgba(13,13,13,0.98);
+            padding: 15px 50px;
+        }
+
+        .logo { 
+            font-family: 'Space Grotesk'; 
+            font-size: 26px; 
+            font-weight: 700; 
+            letter-spacing: 4px; 
+            color: var(--white); 
+            text-decoration: none;
+            position: relative;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px; right: 0;
+            width: 0; height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+        
+        .logo:hover::after { width: 100%; }
+        .logo span { color: var(--gold); }
+
+        .nav-links { display: flex; gap: 35px; list-style: none; }
+        .nav-links a { 
+            color: var(--white); 
+            text-decoration: none; 
+            font-size: 13px; 
+            font-weight: 400; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute; bottom: 0; right: 0;
+            width: 0; height: 1px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover { color: var(--gold); }
+        .nav-links a:hover::after { width: 100%; }
+
+        .cart-icon { 
+            position: relative; 
+            cursor: pointer; 
+            font-size: 18px; 
+            color: var(--white);
+            transition: var(--transition);
+        }
+        
+        .cart-icon:hover { color: var(--gold); }
+        .cart-count { 
+            position: absolute; top: -8px; right: -8px; 
+            background: var(--gold); color: var(--black); 
+            font-size: 10px; width: 16px; height: 16px; 
+            border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; 
+            font-weight: bold; 
+        }
+
+        /* ========== PAGE TRANSITIONS ========== */
+        .page {
+            position: fixed; top: 0; right: 0;
+            width: 100%; height: 100vh;
+            opacity: 0; visibility: hidden;
+            transform: translateX(100px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+        }
+
+        .page.active {
+            opacity: 1; visibility: visible;
+            transform: translateX(0);
+        }
+
+        .page.exit {
+            transform: translateX(-50px);
+            opacity: 0;
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero-page { background: var(--black); }
+        
+        .hero { 
+            height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            position: relative;
+            background: 
+                radial-gradient(ellipse at center, #1a1a1a 0%, #0d0d0d 70%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(180,150,15,0.03) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(180,150,15,0.03) 0%, transparent 50%);
+            animation: heroGlow 8s ease-in-out infinite;
+        }
+
+        @keyframes heroGlow {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .hero-content { 
+            position: relative; z-index: 2; 
+            text-align: center; 
+            max-width: 600px;
+            animation: fadeUp 1s ease-out;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-subtitle { 
+            font-family: 'Space Grotesk'; 
+            font-size: 12px; 
+            letter-spacing: 8px; 
+            text-transform: uppercase; 
+            color: var(--gold); 
+            margin-bottom: 20px;
+        }
+        
+        .hero-title { 
+            font-size: 90px; 
+            font-weight: 900; 
+            margin-bottom: 15px;
+            animation: fadeUp 1s ease-out 0.2s both;
+        }
+        
+        .hero-title span { 
+            display: block; 
+            font-size: 45px; 
+            -webkit-text-stroke: 1px var(--white); 
+            color: transparent; 
+            letter-spacing: 20px;
+            animation: fadeUp 1s ease-out 0.4s both;
+        }
+        
+        .hero-tagline { 
+            font-size: 20px; 
+            color: var(--gold-light); 
+            margin-bottom: 20px; 
+            font-weight: 400;
+            letter-spacing: 3px;
+            animation: fadeUp 1s ease-out 0.6s both;
+        }
+        
+        .hero-desc { 
+            font-size: 15px; 
+            color: #888; 
+            margin-bottom: 40px;
+            animation: fadeUp 1s ease-out 0.8s both;
+        }
+        
+        .hero-btn { 
+            display: inline-block; 
+            padding: 16px 45px; 
+            border: 1px solid var(--gold); 
+            color: var(--gold); 
+            text-decoration: none; 
+            font-size: 12px; 
+            font-weight: 500; 
+            text-transform: uppercase; 
+            letter-spacing: 3px; 
+            transition: var(--transition);
+            animation: fadeUp 1s ease-out 1s both;
+        }
+        
+        .hero-btn:hover { 
+            background: var(--gold); 
+            color: var(--black);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(180,150,15,0.2);
+        }
+
+        /* ========== PHILOSOPHY SECTION ========== */
+        .philosophy-page { background: var(--black); }
+        
+        .philosophy-section {
+            min-height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+            padding: 100px 20px;
+        }
+
+        .philosophy-content { 
+            max-width: 700px; 
+            text-align: center; 
+        }
+
+        .philosophy-title { 
+            font-family: 'Space Grotesk'; 
+            font-size: 13px; 
+            letter-spacing: 6px; 
+            text-transform: uppercase; 
+            color: var(--gold); 
+            margin-bottom: 25px;
+        }
+
+        .philosophy-main { 
+            font-size: 28px; 
+            font-weight: 400; 
+            line-height: 2; 
+            color: #ccc;
+            margin-bottom: 50px;
+        }
+
+        .philosophy-main span { 
+            color: var(--gold); 
+            font-weight: 600;
+        }
+
+        .philosophy-details { 
+            display: flex; 
+            justify-content: center; 
+            gap: 60px; 
+            flex-wrap: wrap; 
+        }
+
+        .philosophy-item { 
+            text-align: center; 
+            max-width: 200px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.6s ease-out forwards;
+        }
+
+        .philosophy-item:nth-child(1) { animation-delay: 0.2s; }
+        .philosophy-item:nth-child(2) { animation-delay: 0.4s; }
+        .philosophy-item:nth-child(3) { animation-delay: 0.6s; }
+
+        .philosophy-item h4 { 
+            font-size: 12px; 
+            letter-spacing: 3px; 
+            text-transform: uppercase; 
+            color: var(--gold); 
+            margin-bottom: 12px; 
+        }
+
+        .philosophy-item p { 
+            font-size: 14px; 
+            color: #666; 
+            line-height: 1.7; 
+        }
+
+        /* ========== COLLECTIONS PAGE (main) ========== */
+        .collections-page { background: var(--dark); }
+        
+        .collections-section {
+            min-height: 100vh;
+            padding: 120px 20px 60px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title { 
+            font-family: 'Space Grotesk'; 
+            font-size: 12px; 
+            letter-spacing: 6px; 
+            text-transform: uppercase; 
+            color: var(--gold); 
+            margin-bottom: 15px; 
+        }
+
+        .section-main { 
+            font-size: 42px; 
+            font-weight: 900; 
+        }
+
+        .collections-grid { 
+            display: flex; 
+            justify-content: center; 
+            gap: 30px; 
+            flex-wrap: wrap; 
+            max-width: 1000px; 
+            margin: 0 auto; 
+        }
+
+        .collection-card { 
+            position: relative; 
+            width: 280px; 
+            height: 400px; 
+            overflow: hidden; 
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeUp 0.6s ease-out forwards;
+        }
+
+        .collection-card:nth-child(1) { animation-delay: 0.1s; }
+        .collection-card:nth-child(2) { animation-delay: 0.2s; }
+        .collection-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .collection-card img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.8s;
+            filter: grayscale(20%);
+        }
+
+        .collection-card:hover img { 
+            transform: scale(1.08); 
+            filter: grayscale(0%);
+        }
+
+        .collection-overlay { 
+            position: absolute; 
+            bottom: 0; left: 0; 
+            width: 100%; 
+            padding: 30px; 
+            background: linear-gradient(to top, rgba(13,13,13,0.95), transparent);
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .collection-card:hover .collection-overlay { transform: translateY(0); }
+
+        .collection-num { 
+            position: absolute; 
+            top: 20px; right: 20px; 
+            font-family: 'Space Grotesk'; 
+            font-size: 48px; 
+            color: rgba(255,255,255,0.08); 
+            font-weight: 700;
+        }
+
+        .collection-title { 
+            font-size: 22px; 
+            font-weight: 700; 
+            margin-bottom: 8px; 
+        }
+
+        .collection-desc { 
+            font-size: 13px; 
+            color: #888; 
+            margin-bottom: 15px; 
+        }
+
+        .collection-link { 
+            color: var(--gold); 
+            text-decoration: none; 
+            font-size: 11px; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .collection-link:hover { gap: 15px; }
+
+        /* ========== INDIVIDUAL COLLECTION PAGES ========== */
+        .collection-page {
+            background: var(--dark);
+            padding: 120px 20px 60px;
+            min-height: 100vh;
+        }
+
+        .collection-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .collection-header h2 {
+            font-size: 36px;
+            font-weight: 900;
+        }
+
+        .collection-header h2 span {
+            color: var(--gold);
+        }
+
+        .back-btn {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .back-btn:hover {
+            color: var(--gold);
+            gap: 12px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: var(--gray);
+            padding: 20px;
+            border-radius: 4px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border-radius: 2px;
+        }
+
+        .product-name {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .product-price {
+            color: var(--gold);
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .size-selector {
+            margin-bottom: 15px;
+        }
+
+        .size-label {
+            display: block;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #aaa;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .size-options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .size-option {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--light-gray);
+            border: 1px solid #555;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .size-option:hover,
+        .size-option.selected {
+            background: var(--gold);
+            color: var(--black);
+            border-color: var(--gold);
+        }
+
+        .custom-size-input {
+            width: 100%;
+            padding: 8px;
+            background: var(--light-gray);
+            border: 1px solid #555;
+            color: var(--white);
+            font-family: 'Cairo', sans-serif;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .custom-size-input::placeholder {
+            color: #777;
+        }
+
+        .add-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: var(--gold);
+            border: none;
+            color: var(--black);
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: auto;
+        }
+
+        .add-btn:hover {
+            background: var(--gold-light);
+        }
+
+        /* ========== IDENTITY PAGE ========== */
+        .identity-page { background: var(--black); }
+        
+        .identity-section {
+            min-height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+            padding: 100px 20px;
+        }
+
+        .identity-content { 
+            max-width: 600px; 
+            text-align: center; 
+        }
+
+        .identity-content h2 { 
+            font-size: 36px; 
+            font-weight: 900; 
+            margin-bottom: 20px; 
+        }
+
+        .identity-content h2 span { color: var(--gold); }
+
+        .identity-content p { 
+            font-size: 16px; 
+            line-height: 1.9; 
+            color: #888; 
+            margin-bottom: 30px; 
+        }
+
+        .identity-btn { 
+            display: inline-block; 
+            padding: 14px 35px; 
+            border: 1px solid var(--gold); 
+            color: var(--gold); 
+            text-decoration: none; 
+            font-size: 12px; 
+            font-weight: 500; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            transition: var(--transition);
+        }
+
+        .identity-btn:hover { 
+            background: var(--gold); 
+            color: var(--black);
+        }
+
+        /* ========== ABOUT PAGE ========== */
+        .about-page { background: var(--dark); }
+        
+        .about-section {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 900px;
+            margin: 0 auto;
+            align-items: center;
+            padding: 120px 20px;
+        }
+
+        .about-content h2 { 
+            font-size: 32px; 
+            font-weight: 900; 
+            margin-bottom: 20px; 
+        }
+
+        .about-content h2 span { color: var(--gold); }
+
+        .about-content p { 
+            font-size: 15px; 
+            line-height: 1.9; 
+            color: #888; 
+            margin-bottom: 25px; 
+        }
+
+        .about-stats { display: flex; gap: 40px; }
+
+        .stat-item h3 { 
+            font-size: 36px; 
+            color: var(--gold); 
+            font-weight: 700;
+        }
+
+        .stat-item p { 
+            font-size: 11px; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            color: #666;
+        }
+
+        .about-visual { position: relative; height: 350px; }
+
+        .about-img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+        }
+
+        .about-img-frame { 
+            position: absolute; 
+            top: 20px; left: 20px; 
+            width: 100%; height: 100%; 
+            border: 2px solid var(--gold); 
+            z-index: -1; 
+        }
+
+        /* ========== CONTACT PAGE ========== */
+        .contact-page { background: var(--black); }
+        
+        .contact-section {
+            min-height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+            padding: 100px 20px;
+        }
+
+        .contact-content { 
+            max-width: 500px; 
+            text-align: center; 
+        }
+
+        .contact-content h2 { 
+            font-size: 36px; 
+            font-weight: 900; 
+            margin-bottom: 20px; 
+        }
+
+        .contact-content h2 span { color: var(--gold); }
+
+        .contact-methods { 
+            display: flex; 
+            justify-content: center; 
+            gap: 40px; 
+            margin-top: 40px; 
+            flex-wrap: wrap; 
+        }
+
+        .contact-item { 
+            text-align: center; 
+            padding: 25px;
+            background: var(--gray);
+            min-width: 150px;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover { transform: translateY(-5px); }
+
+        .contact-item i { 
+            font-size: 28px; 
+            color: var(--gold); 
+            margin-bottom: 15px; 
+        }
+
+        .contact-item h4 { 
+            font-size: 12px; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            margin-bottom: 8px; 
+        }
+
+        .contact-item p { 
+            font-size: 14px; 
+            color: #aaa; 
+        }
+
+        /* ========== CART ========== */
+        .cart-overlay { 
+            position: fixed; 
+            top: 0; left: 0; 
+            width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.5); 
+            z-index: 1999; 
+            display: none; 
+        }
+
+        .cart-overlay.active { display: block; }
+
+        .cart-sidebar { 
+            position: fixed; 
+            top: 0; left: -350px; 
+            width: 350px; 
+            height: 100%; 
+            background: var(--dark); 
+            z-index: 2000; 
+            padding: 30px; 
+            transition: var(--transition);
+            display: flex; flex-direction: column;
+        }
+
+        .cart-sidebar.active { left: 0; }
+
+        .cart-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 25px; 
+            padding-bottom: 20px; 
+            border-bottom: 1px solid var(--gray); 
+        }
+
+        .cart-header h3 { font-size: 18px; }
+
+        .cart-close { 
+            background: none; 
+            border: none; 
+            color: var(--white); 
+            font-size: 24px; 
+            cursor: pointer; 
+        }
+
+        .cart-items { flex: 1; overflow-y: auto; }
+
+        .cart-item { 
+            display: flex; 
+            gap: 15px; 
+            margin-bottom: 20px; 
+            padding-bottom: 20px; 
+            border-bottom: 1px solid var(--gray); 
+        }
+
+        .cart-item img { 
+            width: 60px; 
+            height: 60px; 
+            object-fit: cover; 
+        }
+
+        .cart-item-info h4 { 
+            font-size: 14px; 
+            margin-bottom: 5px; 
+        }
+
+        .cart-item-info .item-size { 
+            font-size: 12px; 
+            color: #aaa; 
+            margin-bottom: 5px; 
+        }
+
+        .cart-item-info p { 
+            color: var(--gold); 
+            font-size: 13px; 
+            font-weight: 700; 
+        }
+
+        .cart-item-remove { 
+            background: none; 
+            border: none; 
+            color: #666; 
+            cursor: pointer; 
+            font-size: 11px; 
+            margin-top: 5px; 
+        }
+
+        .cart-footer { 
+            padding-top: 20px; 
+            border-top: 1px solid var(--gray); 
+        }
+
+        .cart-total { 
+            display: flex; 
+            justify-content: space-between; 
+            font-size: 16px; 
+            font-weight: 700; 
+            margin-bottom: 20px; 
+        }
+
+        .cart-total span:last-child { color: var(--gold); }
+
+        .checkout-btn { 
+            display: block; 
+            width: 100%; 
+            padding: 14px; 
+            background: var(--gold); 
+            border: none; 
+            color: var(--black); 
+            font-weight: 700; 
+            font-size: 12px; 
+            text-transform: uppercase; 
+            cursor: pointer; 
+            text-align: center; 
+            letter-spacing: 2px;
+        }
+
+        .payment-methods { 
+            text-align: center; 
+            margin-top: 15px; 
+        }
+
+        .payment-methods p { 
+            font-size: 11px; 
+            color: #555; 
+            margin-bottom: 10px; 
+        }
+
+        .payment-methods i { 
+            font-size: 22px; 
+            color: #555; 
+            margin: 0 8px; 
+        }
+
+        /* ========== FOOTER ========== */
+        footer { 
+            padding: 30px 20px; 
+            background: var(--dark); 
+            text-align: center; 
+            border-top: 1px solid var(--gray); 
+        }
+
+        footer p { 
+            font-size: 12px; 
+            color: #555; 
+            letter-spacing: 2px; 
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            nav { padding: 15px 20px; }
+            .nav-links { display: none; }
+            .hero-title { font-size: 55px; }
+            .hero-title span { font-size: 28px; letter-spacing: 10px; }
+            .about-section { grid-template-columns: 1fr; text-align: center; }
+            .about-visual { height: 250px; }
+            .about-stats { justify-content: center; }
+            .cart-sidebar { width: 100%; left: -100%; }
+            .collection-header { flex-direction: column; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="logo" onclick="showPage('hero')">ي<span>ق</span>ين</a>
+        <ul class="nav-links">
+            <li><a href="#" onclick="showPage('hero')">الرئيسية</a></li>
+            <li><a href="#" onclick="showPage('philosophy')">فلسفتنا</a></li>
+            <li><a href="#" onclick="showPage('collections')">الكوليكشنز</a></li>
+            <li><a href="#" onclick="showPage('identity')">الهوية</a></li>
+            <li><a href="#" onclick="showPage('about')">عن البراند</a></li>
+            <li><a href="#" onclick="showPage('contact')">تواصل معنا</a></li>
+        </ul>
+        <div class="cart-icon" onclick="toggleCart()">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-count" id="cartCount">0</span>
+        </div>
+    </nav>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>سلة التسوق</h3>
+            <button class="cart-close" onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p style="text-align: center; color: #666; padding: 20px;">السلة فارغة</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>الإجمالي</span>
+                <span id="cartTotal">0 ج.م</span>
+            </div>
+            <button class="checkout-btn">إتمام الشراء</button>
+            <div class="payment-methods">
+                <p>وسائل الدفع المتاحة</p>
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-paypal"></i>
+                <i class="fas fa-wallet"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO PAGE -->
+    <div class="page hero-page active" id="hero">
+        <section class="hero">
+            <div class="hero-content">
+                <p class="hero-subtitle">Fashion Redefined</p>
+                <h1 class="hero-title">ي<span>ق</span>ين<span>YAQEEN</span></h1>
+                <p class="hero-tagline">خليك أنيق مع يقين</p>
+                <p class="hero-desc">ارتدِ الحقيقة. شعر بالثقة. كن يقيناً.</p>
+                <a href="#" class="hero-btn" onclick="showPage('collections')">تصفح المنتجات</a>
+            </div>
+        </section>
+        <footer>
+            <p>© 2026 يقين | جميع الحقوق محفوظة</p>
+        </footer>
+    </div>
+
+    <!-- PHILOSOPHY PAGE -->
+    <div class="page philosophy-page" id="philosophy">
+        <section class="philosophy-section">
+            <div class="philosophy-content">
+                <p class="philosophy-title">فلسفتنا</p>
+                <h2 class="section-main">ما هو <span>اليقين</span>؟</h2>
+                <p class="philosophy-main">
+                    يقين مش مجرد اسم. يقين هي <span>حالة</span>. إنك تفضل واقف على أرضك الثابتة حتى لو لوحدك. حتى لو متلخبط. 
+                    <br><br>
+                    مش استعراض. مش صراخ. مش اثبات. <span>إنك عارف</span> ومش محتاج تبرر لأي حد.
+                </p>
+                <div class="philosophy-details">
+                    <div class="philosophy-item">
+                        <h4>ثابت</h4>
+                        <p>على أرضك واقف، مهما اللي حواليك اتغير</p>
+                    </div>
+                    <div class="philosophy-item">
+                        <h4>صادق</h4>
+                        <p>مع نفسك، بدون ما تبرر أو توضح</p>
+                    </div>
+                    <div class="philosophy-item">
+                        <h4>مطمئن</h4>
+                        <p>عارف طريقك ومش محتاج موافقة حد</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <p>© 2026 يقين | جميع الحقوق محفوظة</p>
+        </footer>
+    </div>
+
+    <!-- MAIN COLLECTIONS PAGE -->
+    <div class="page collections-page" id="collections">
+        <section class="collections-section">
+            <div class="section-header">
+                <p class="section-title">Our Collections</p>
+                <h2 class="section-main">كوليكشنز يقين</h2>
+            </div>
+            <div class="collections-grid">
+                <div class="collection-card" onclick="showPage('summer-collection')">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80" alt="Summer">
+                    <div class="collection-overlay">
+                        <span class="collection-num">01</span>
+                        <h3 class="collection-title">Summer 2024</h3>
+                        <p class="collection-desc">كوليكشن الصيف - خفيف وأنيق</p>
+                        <span class="collection-link">تصفح المنتجات ←</span>
+                    </div>
+                </div>
+                <div class="collection-card" onclick="showPage('essentials-collection')">
+                    <img src="https://images.unsplash.com/photo-1507680434567-5739c80be1ac?w=600&q=80" alt="Essentials">
+                    <div class="collection-overlay">
+                        <span class="collection-num">02</span>
+                        <h3 class="collection-title">Essentials</h3>
+                        <p class="collection-desc">الأساسيات - كلاسيك للأبد</p>
+                        <span class="collection-link">تصفح المنتجات ←</span>
+                    </div>
+                </div>
+                <div class="collection-card" onclick="showPage('streetwear-collection')">
+                    <img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?w=600&q=80" alt="Streetwear">
+                    <div class="collection-overlay">
+                        <span class="collection-num">03</span>
+                        <h3 class="collection-title">Streetwear</h3>
+                        <p class="collection-desc">ستريت ووير - جرأة وأسلوب</p>
+                        <span class="collection-link">تصفح المنتجات ←</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <p>© 2026 يقين | جميع الحقوق محفوظة</p>
+        </footer>
+    </div>
+
+    <!-- SUMMER COLLECTION PAGE -->
+    <div class="page collection-page" id="summer-collection">
+        <div class="collection-header">
+            <h2>كوليكشن <span>الصيف 2024</span></h2>
+            <a href="#" class="back-btn" onclick="showPage('collections')"><i class="fas fa-arrow-right"></i> العودة للكوليكشنز</a>
+        </div>
+        <div class="products-grid" id="summerProducts"></div>
+        <footer>
+            <p>© 2026 يقين | جميع الحقوق محفوظة</p>
+        </footer>
+    </div>
+
+    <!-- ESSENTIALS COLLECTION PAGE -->
+    <div class="page collection-page" id="essentials-collection">
+        <div class="collection-header">
+            <h2>كوليكشن <span>الأساسيات</span></h2>
+            <a href="#" class="back-btn" onclick="showPage('collections')"><i class="fas fa-arrow-right"></i> العودة للكوليكشنز</a>
+        </div>
+        <div class="products-grid" id="essentialsProducts"></div>
+        <footer>
+            <p>© 2026 يقين | جميع الحقوق محفوظة</p>
+        </footer>
+    </div>
+
+    <!-- STREETWEAR COLLECTION PAGE -->
+    <div class="page collection-page" id="streetwear-collection">
+        <div class="collection-header">
+            <h2>كوليكشن <span>ستريت وير</span></h2>
+            <a href="#" class="back-btn" onclick="showPage('collections')"><i class="fas fa-arrow-right"></i> العودة للكوليكشنز</a>
+        </div>
+        <div class="products-grid" id="streetwearProducts"></div>
+        <footer>
+            <p>© 2026 يقين | جميع الحقوق محفوظة</p>
+        </footer>
+    </div>
+
+    <!-- IDENTITY PAGE -->
+    <div class="page identity-page" id="identity">
+        <section class="identity-section">
+            <div class="identity-content">
+                <p class="section-title">الهوية</p>
+                <h2>هوية <span>يقين</span></h2>
+                <p>
+                    yaqeen.com هو أكثر من مجرد براند ملابس. هو فلسفة حياة. 
+                    <br><br>
+                    نؤمن بأن الأناقة الحقيقية تأتي من الداخل. عندما تكون واثقاً بنفسك، 
+                    هذا هو ما يجعلك ترتدي ملابسك بطريقة مختلفة.
+                    <br><br>
+                    كل قطعة نصممها تحمل معنى. نستخدم أجود الأقمشة وأفضل الخامات 
+                    لأننا نؤمن بأنك تستحق الأفضل.
+                </p>
+                <a href="#" class="identity-btn" onclick="showPage('about')">اعرف أكثر عننا</a>
+            </div>
+        </section>
+        <footer>
+            <p>© 2026 يقين | جميع الحقوق محفوظة</p>
+        </footer>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div class="page about-page" id="about">
+        <section class="about-section">
+            <div class="about-content">
+                <h2>عن <span>يقين</span></h2>
+                <p>
+                    بدأنا رحلة yaqeen.com بفكرة بسيطة: نريد أن نصنع ملابس تجعلك تشعر بالثقة.
+                    ملابس ليست مجرد قماش، بل هي طريقة للتعبير عن نفسك.
+                    <br><br>
+                    كل كوليكشن نطرحه يحكي قصة. قصة عن الإنسان الذي يعرف ما يريده 
+                    ويسير نحوه بثقة وهدوء.
+                </p>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <h3>50+</h3>
+                        <p>منتج</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>3</h3>
+                        <p>كوليكشنز</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>2024</h3>
+                        <p>تأسيس</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-visual">
+                <img class="about-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="About">
+                <div class="about-img-frame"></div>
+            </div>
+        </section>
+        <footer>
+            <p>© 2026 يقين | جميع الحقوق محفوظة</p>
+        </footer>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div class="page contact-page" id="contact">
+        <section class="contact-section">
+            <div class="contact-content">
+                <p class="section-title">تواصل معنا</p>
+                <h2>نحن <span>هنا</span> من أجلك</h2>
+                <div class="contact-methods">
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <h4>اتصل بنا</h4>
+                        <p>+20 10 1234 5678</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <h4>واتساب</h4>
+                        <p>+20 10 1234 5678</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <h4>البريد</h4>
+                        <p>info@yaqeen.com</p>
+                    </div>
+                    <a href="https://instagram.com/yaqeen.com" target="_blank" style="text-decoration: none; color: inherit;">
+                        <div class="contact-item">
+                            <i class="fab fa-instagram"></i>
+                            <h4>إنستغرام</h4>
+                            <p>@yaqeen.com</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <p>© 2026 يقين | جميع الحقوق محفوظة</p>
+        </footer>
+    </div>
+
+    <script>
+        // ========== CUSTOM CURSOR ==========
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        document.querySelectorAll('a, button, .collection-card, .size-option').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+        });
+
+        // ========== NAVBAR SCROLL ==========
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // ========== PAGE NAVIGATION ==========
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        // ========== PRODUCT DATA ==========
+        const productsData = {
+            summer: [
+                { name: 'تيشيرت صيفي', price: 450, img: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80' },
+                { name: 'بنطال صيفي', price: 750, img: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&q=80' },
+                { name: 'قميص كتاني', price: 550, img: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&q=80' },
+                { name: 'سويت شيرت', price: 650, img: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=400&q=80' },
+                { name: 'شورت رياضي', price: 350, img: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=400&q=80' },
+                { name: 'نظارة شمسية', price: 300, img: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400&q=80' }
+            ],
+            essentials: [
+                { name: 'تيشيرت أساسي', price: 350, img: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80' },
+                { name: 'بنطال كلاسيك', price: 800, img: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&q=80' },
+                { name: 'هودي أساسي', price: 700, img: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=400&q=80' },
+                { name: 'جاكيت جينز', price: 1200, img: 'https://images.unsplash.com/photo-1551028919-ac66e6a33653?w=400&q=80' },
+                { name: 'قميص أبيض', price: 500, img: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&q=80' },
+                { name: 'بنطال رياضي', price: 600, img: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=400&q=80' }
+            ],
+            streetwear: [
+                { name: 'جاكيت ستريت', price: 1500, img: 'https://images.unsplash.com/photo-1551028919-ac66e6a33653?w=400&q=80' },
+                { name: 'بنطال واسع', price: 850, img: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&q=80' },
+                { name: 'تيشيرت جرافيتي', price: 500, img: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80' },
+                { name: 'كاب ستريت', price: 300, img: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400&q=80' },
+                { name: 'هودي أوفرسايز', price: 900, img: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=400&q=80' },
+                { name: 'حذاء رياضي', price: 1300, img: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&q=80' }
+            ]
+        };
+
+        // ========== RENDER PRODUCTS ==========
+        function renderProducts(containerId, products) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = products.map(product => `
+                <div class="product-card">
+                    <img class="product-image" src="${product.img}" alt="${product.name}">
+                    <h3 class="product-name">${product.name}</h3>
+                    <div class="product-price">${product.price} ج.م</div>
+                    
+                    <div class="size-selector">
+                        <span class="size-label">اختر المقاس:</span>
+                        <div class="size-options">
+                            <div class="size-option" onclick="selectSize(this, 'M')">M</div>
+                            <div class="size-option" onclick="selectSize(this, 'L')">L</div>
+                            <div class="size-option" onclick="selectSize(this, 'XL')">XL</div>
+                            <div class="size-option" onclick="selectSize(this, 'XXL')">XXL</div>
+                        </div>
+                        <input type="text" class="custom-size-input" placeholder="مقاس خاص (اكتب المقاس)" onchange="setCustomSize(this)">
+                    </div>
+                    
+                    <button class="add-btn" onclick="addToCartFromCard(this, '${product.name}', ${product.price}, '${product.img}')">إضافة للسلة</button>
+                </div>
+            `).join('');
+        }
+
+        // Initialize products on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts('summerProducts', productsData.summer);
+            renderProducts('essentialsProducts', productsData.essentials);
+            renderProducts('streetwearProducts', productsData.streetwear);
+        });
+
+        // ========== SIZE SELECTION ==========
+        window.selectSize = function(element, size) {
+            // Remove selected class from siblings
+            const parent = element.parentNode;
+            parent.querySelectorAll('.size-option').forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+            
+            // Store selected size in the product card (will be used when adding to cart)
+            const card = element.closest('.product-card');
+            card.dataset.selectedSize = size;
+            
+            // Clear custom size input if any
+            const customInput = card.querySelector('.custom-size-input');
+            if (customInput) customInput.value = '';
+        };
+
+        window.setCustomSize = function(input) {
+            const card = input.closest('.product-card');
+            const size = input.value.trim();
+            if (size) {
+                card.dataset.selectedSize = size;
+                // Remove selection from standard sizes
+                card.querySelectorAll('.size-option').forEach(opt => opt.classList.remove('selected'));
+            } else {
+                delete card.dataset.selectedSize;
+            }
+        };
+
+        // ========== CART ==========
+        let cart = [];
+        let total = 0;
+
+        window.addToCartFromCard = function(button, name, price, img) {
+            const card = button.closest('.product-card');
+            let size = card.dataset.selectedSize;
+            
+            // If no size selected, check if custom input has value
+            if (!size) {
+                const customInput = card.querySelector('.custom-size-input');
+                if (customInput && customInput.value.trim() !== '') {
+                    size = customInput.value.trim();
+                } else {
+                    alert('الرجاء اختيار مقاس');
+                    return;
+                }
+            }
+            
+            cart.push({ name, price, img, size });
+            total += price;
+            updateCart();
+        };
+
+        window.removeFromCart = function(index) {
+            total -= cart[index].price;
+            cart.splice(index, 1);
+            updateCart();
+        };
+
+        function updateCart() {
+            document.getElementById('cartCount').textContent = cart.length;
+            document.getElementById('cartTotal').textContent = total + ' ج.م';
+            
+            const cartItems = document.getElementById('cartItems');
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p style="text-align: center; color: #666; padding: 20px;">السلة فارغة</p>';
+            } else {
+                cartItems.innerHTML = cart.map((item, index) => `
+                    <div class="cart-item">
+                        <img src="${item.img}" alt="${item.name}">
+                        <div class="cart-item-info">
+                            <h4>${item.name}</h4>
+                            <div class="item-size">المقاس: ${item.size}</div>
+                            <p>${item.price} ج.م</p>
+                            <button class="cart-item-remove" onclick="removeFromCart(${index})">إزالة</button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function toggleCart() {
+            document.getElementById('cartSidebar').classList.toggle('active');
+            document.getElementById('cartOverlay').classList.toggle('active');
+        }
+
+        // Make functions global
+        window.showPage = showPage;
+        window.toggleCart = toggleCart;
+        window.addToCartFromCard = addToCartFromCard;
+        window.removeFromCart = removeFromCart;
+    </script>
+</body>
+</html>
